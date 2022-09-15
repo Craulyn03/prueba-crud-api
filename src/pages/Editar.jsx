@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 import {
   Input,
   Button,
@@ -43,7 +44,7 @@ const Editar = ({ edit }) => {
 
   const onSubmit = async (data, e) => {
     mutate(data);
-    console.log(data);
+    Swal.fire("Buen Trabajo!", "PRODUCTO EDITADO CORRECTAMENTE!", "success");
     e.target.reset();
   };
 
@@ -131,13 +132,13 @@ const Editar = ({ edit }) => {
           </SimpleGrid>
 
           <Button
-            colorScheme="messenger"
+            colorScheme="yellow"
             type="submit"
             mt="3rem"
             width="200px"
             isLoading={isLoading}
           >
-            Enviar
+            EDITAR
           </Button>
         </form>
       </Box>

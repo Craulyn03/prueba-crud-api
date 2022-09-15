@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "react-query";
+import "../src/index.css";
 
 const client = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));

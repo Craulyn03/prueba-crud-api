@@ -10,6 +10,7 @@ import {
   Box,
   Button,
   Heading,
+  Input,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect } from "react";
@@ -18,6 +19,8 @@ import { Link } from "react-router-dom";
 
 const Detalles = ({ setEdit }) => {
   const [data, setData] = useState([]);
+  const [filtroName, setFiltroName] = useState("");
+  const [filtroCategory, setFiltroCategory] = useState("");
 
   useEffect(() => {
     return () => {
@@ -48,6 +51,23 @@ const Detalles = ({ setEdit }) => {
       <Box textAlign="center" mt="3rem">
         <Heading>LISTADO DE PRODUCTOS</Heading>
       </Box>
+      <Box ml="2rem">
+        <Heading ml="1rem" fontSize="1rem">
+          Filtros
+        </Heading>
+        <Input
+          placeholder="Producto"
+          maxWidth="200px"
+          onChange={(e) => setFiltroName(e.target.value)}
+          m="1rem"
+        />
+
+        <Input
+          placeholder="Categoria"
+          maxWidth="200px"
+          onChange={(e) => setFiltroCategory(e.target.value)}
+        />
+      </Box>
       <TableContainer p="2rem">
         <Table variant="simple">
           <TableCaption>Productos de Inventario</TableCaption>
@@ -68,25 +88,45 @@ const Detalles = ({ setEdit }) => {
                 </Td>
               </Tr>
             ) : (
-              data.map((el) => (
-                <Tr key={el.id}>
-                  <Td>{el.name}</Td>
-                  <Td>{el.description}</Td>
-                  <Td>{el.category}</Td>
-                  <Td>{el.stock}</Td>
-                  <Td isNumeric>${el.price}</Td>
+              data
+                .filter((producto) =>
+                  producto.name.toLowerCase().includes(filtroName.toLowerCase())
+                )
+                .filter((producto) =>
+                  producto.category
+                    .toLowerCase()
+                    .includes(filtroCategory.toLowerCase())
+                )
+                .map((el) => (
+                  <Tr key={el.id}>
+                    <Td>{el.name}</Td>
+                    <Td>{el.description}</Td>
+                    <Td>{el.category}</Td>
+                    <Td>{el.stock}</Td>
+                    <Td isNumeric>${el.price}</Td>
 
-                  <Td>
-                    <Link to="/editar-producto">
-                      <Button onClick={() => editItem(el)}>Editar</Button>
-                    </Link>
-                  </Td>
+                    <Td>
+                      <Link to="/editar-producto">
+                        <Button onClick={() => editItem(el)} bg="#F1C40F">
+                          Editar
+                        </Button>
+                      </Link>
+                    </Td>
 
-                  <Td>
-                    <Button onClick={() => deleteItem(el.id)}>Elminar</Button>
-                  </Td>
-                </Tr>
-              ))
+                    <Td>
+                      <Button
+                        onClick={() => deleteItem(el.id)}
+                        bg="red"
+                        color="white"
+                        _hover={{
+                          color: "black",
+                        }}
+                      >
+                        Eliminar
+                      </Button>
+                    </Td>
+                  </Tr>
+                ))
             )}
           </Tbody>
         </Table>

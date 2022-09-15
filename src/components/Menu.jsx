@@ -1,10 +1,10 @@
-import { List, ListItem, ListIcon } from "@chakra-ui/react";
+import { List, ListItem, ListIcon, Box } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiFillHdd, AiOutlineContainer } from "react-icons/ai";
 
 const Menu = () => {
   return (
-    <div>
+    <Box>
       <List spacing={3} textAlign="center">
         <Link to="/">
           <ListItem
@@ -28,7 +28,7 @@ const Menu = () => {
               fontWeight: "600",
             }}
           >
-            <ListIcon as={AiFillHome} />
+            <ListIcon as={AiFillHdd} />
             Registrar Producto
           </ListItem>
         </Link>
@@ -41,26 +41,12 @@ const Menu = () => {
               fontWeight: "600",
             }}
           >
-            <ListIcon as={AiFillHome} />
+            <ListIcon as={AiOutlineContainer} />
             Detalles de Productos
           </ListItem>
         </Link>
-
-        <Link to="/facturas">
-          <ListItem
-            p="1.2rem"
-            _hover={{
-              background: "white",
-              color: "teal.500",
-              fontWeight: "600",
-            }}
-          >
-            <ListIcon as={AiFillHome} />
-            Facturas
-          </ListItem>
-        </Link>
       </List>
-    </div>
+    </Box>
   );
 };
 

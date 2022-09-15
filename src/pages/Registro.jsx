@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 import {
   Input,
   Button,
@@ -28,6 +29,7 @@ const Registro = () => {
 
   const onSubmit = async (data, e) => {
     mutate(data);
+    Swal.fire("Buen Trabajo!", "PRODUCTO AGREGADO CORRECTAMENTE!", "success");
     e.target.reset();
   };
 
@@ -46,7 +48,7 @@ const Registro = () => {
                 bg="#fff"
               />
 
-              {errors.producto?.type === "required" && (
+              {errors.name?.type === "required" && (
                 <Tag mt="0.2rem" bg="red" color="white">
                   Campo Requerido
                 </Tag>
@@ -59,7 +61,7 @@ const Registro = () => {
                 {...register("description", { required: true })}
                 bg="#fff"
               />
-              {errors.descripcion?.type === "required" && (
+              {errors.description?.type === "required" && (
                 <Tag mt="0.2rem" bg="red" color="white">
                   Campo Requerido
                 </Tag>
@@ -77,7 +79,7 @@ const Registro = () => {
                 <option value="categoria3">Categoria 3</option>
               </Select>
 
-              {errors.categoria?.type === "required" && (
+              {errors.category?.type === "required" && (
                 <Tag mt="0.2rem" bg="red" color="white">
                   Campo Requerido
                 </Tag>
@@ -106,7 +108,7 @@ const Registro = () => {
                 bg="#fff"
                 type="number"
               />
-              {errors.precio?.type === "required" && (
+              {errors.price?.type === "required" && (
                 <Tag mt="0.2rem" bg="red" color="white">
                   Campo Requerido
                 </Tag>
@@ -121,7 +123,7 @@ const Registro = () => {
             width="200px"
             isLoading={isLoading}
           >
-            Enviar
+            REGISTRAR
           </Button>
         </form>
       </Box>
