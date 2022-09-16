@@ -6,9 +6,8 @@ Gestor de invetario Basico.
 
 # How to run
 
-1. Clonar el proyecto e instalar las dependencias
-2.`https://github.com/Craulyn03/prueba-crud-api.git`
-4. `cd prueba-crud-api`
-5. `npm start`
-6. Ejecutar la Api
+1. Clonar el proyecto e instalar las dependencias`https://github.com/Craulyn03/prueba-crud-api.git`
+3. `cd prueba-crud-api`
+4. `npm start`
+5. Ejecutar la Api
 `dotnet watch run`
