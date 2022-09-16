@@ -19,7 +19,7 @@ function App() {
     price: 0,
   });
 
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
 
   const handleClick = (event) => {
     // 👇️ toggle isActive state on click
