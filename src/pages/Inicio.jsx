@@ -36,7 +36,7 @@ function FadeEx() {
 
 const Inicio = () => {
   return (
-    <Box textAlign="center" pt="1rem">
+    <Box textAlign="center" pt="3rem">
       <Heading>SISTEMA DE INVETARIO</Heading>
       <Center pt="1rem">
         <Image

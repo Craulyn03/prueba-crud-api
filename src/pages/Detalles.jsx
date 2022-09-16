@@ -47,8 +47,8 @@ const Detalles = ({ setEdit }) => {
   };
 
   return (
-    <Box>
-      <Box textAlign="center" mt="3rem">
+    <Box pt="5rem">
+      <Box textAlign="center" mb="2rem">
         <Heading>LISTADO DE PRODUCTOS</Heading>
       </Box>
       <Box ml="2rem">
@@ -69,7 +69,7 @@ const Detalles = ({ setEdit }) => {
         />
       </Box>
       <TableContainer p="2rem">
-        <Table variant="simple">
+        <Table variant="simple" className="table">
           <TableCaption>Productos de Inventario</TableCaption>
           <Thead>
             <Tr>
@@ -98,12 +98,14 @@ const Detalles = ({ setEdit }) => {
                     .includes(filtroCategory.toLowerCase())
                 )
                 .map((el) => (
-                  <Tr key={el.id}>
-                    <Td>{el.name}</Td>
-                    <Td>{el.description}</Td>
-                    <Td>{el.category}</Td>
-                    <Td>{el.stock}</Td>
-                    <Td isNumeric>${el.price}</Td>
+                  <Tr key={el.id} className="table">
+                    <Td encabezados="PRODUCTO">{el.name}</Td>
+                    <Td encabezados="DESCRIPCION">{el.description}</Td>
+                    <Td encabezados="CATEGORIA">{el.category}</Td>
+                    <Td encabezados="STOCK">{el.stock}</Td>
+                    <Td encabezados="PRECIO" isNumeric>
+                      ${el.price}
+                    </Td>
 
                     <Td>
                       <Link to="/editar-producto">
