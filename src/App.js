@@ -1,4 +1,4 @@
-import { Flex, Square, Box } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import Menu from "./components/Menu";
 import { Routes, Route } from "react-router-dom";
 import Inicio from "./pages/Inicio";
